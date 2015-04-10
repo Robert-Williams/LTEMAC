@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Robert-Williams/LTEMAC/issues"
   },
-  "homepage": "https://github.com/Robert-Williams/LTEMAC"
+  "homepage": "https://github.com/Robert-Williams/LTEMAC",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
 }

@@ -1,0 +1,24 @@
+{
+  "name": "LTEMAC",
+  "version": "1.0.0",
+  "description": "Server software for providing cloud storage to LTEMA.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Robert-Williams/LTEMAC"
+  },
+  "keywords": [
+    "cloud",
+    "server",
+    "restful"
+  ],
+  "author": "Robert Williams, Nathan Staples, Neil McMunn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robert-Williams/LTEMAC/issues"
+  },
+  "homepage": "https://github.com/Robert-Williams/LTEMAC"
+}

@@ -14,11 +14,14 @@ application the ability to store site surveys in the cloud.
 ### Key Features
 
 
+### Dependencies
 
+	* Express
+	* Colors
 
 
 ### Project Team:
-Robert Williams
-Nathan Staples
-Neil McMunn
+	* Robert Williams
+	* Nathan Staples
+	* Neil McMunn
 

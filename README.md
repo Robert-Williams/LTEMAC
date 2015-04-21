@@ -15,13 +15,33 @@ application the ability to store site surveys in the cloud.
 
 
 ### Dependencies
+* Express
 
-	* Express
-	* Colors
+### QA Tools
+* Grunt (Javascript Task Runner)
+* JSHint (Static Code Analysis Tool)
+* JSCS (JavaScript Code Style checker)
+* Mocha (JavaScript Test Framework)
+
+##### Run using the following commands to set up the local enviroment for testing
+
+```
+npm install -g jshint
+npm install -g jscs
+npm install -g mocha
+npm install -g grunt-cli
+```
+These commands must be run in the root of the project (not in the app directory).
+```
+npm install grunt-contrib-jshint --save-dev
+npm install grunt-cafe-mocha --save-dev
+npm install grunt-jscs --save-dev
+```
+    
 
 
 ### Project Team:
-	* Robert Williams
-	* Nathan Staples
-	* Neil McMunn
+* Robert Williams
+* Nathan Staples
+* Neil McMunn
 

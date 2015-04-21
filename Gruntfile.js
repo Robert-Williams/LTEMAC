@@ -25,6 +25,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-cafe-mocha');
 	grunt.loadNpmTasks('grunt-jscs');
 
-	grunt.registerTask('default', ['jshint', 'cafemocha', 'jscs']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'cafemocha']);
 
 };

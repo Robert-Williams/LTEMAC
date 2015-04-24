@@ -45,8 +45,8 @@
         "do"
     ],
     "requireSpaceAfterKeywords": [
-        "if",
-        "else",
+        //"if",
+        //"else",
         "for",
         "while",
         "do",

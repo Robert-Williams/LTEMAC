@@ -3,14 +3,10 @@ var survey = require('./lib/survey.js');
 var express = require('express');
 var app = express();
 
-app.set('port', 3000);
+app.set('port', (process.env.PORT || 5000));
 
 //401 unauthorized access
 //497 HTTP to HTTPS
-
-app.get('/', function(req, res){
-	res.send('Welcome to zombocom!');
-});
 
 //Request Image Storage Key
 app.get('/image_auth', function(req, res){

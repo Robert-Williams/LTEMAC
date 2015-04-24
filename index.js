@@ -1,5 +1,6 @@
 var colors = require('colors');
 var secure = require('./lib/secure.js');
+var survey = require('./lib/survey.js');
 var express = require('express');
 var app = express();
 
@@ -10,17 +11,38 @@ app.set('port', 3000);
 
 //Request Image Storage Key
 app.get('/image_auth', function(req, res){
-	res.send('Here\'s a secret');
+	if(secure.connection(req)){
+		secure.sendSecret(req, res);
+	}
+	else{
+		res.type('text/plain');
+		res.status(497);
+		res.send('497 - HTTP to HTTPS');
+	}
 });
 
 //Request a Survey
-app.get('/survey', function(req, res){
-	var result = {survey: 'survey 503', code: '20'};
-	res.json(result);
+app.get('/download', function(req, res){
+	if(secure.connection(req)){
+		survey.download(req, res);
+	}
+	else{
+		res.type('text/plain');
+		res.status(497);
+		res.send('497 - HTTP to HTTPS');
+	}
 });
 
 //Upload a Survey
 app.post('/upload', function(req, res){
+	if(secure.connection(req)){
+		survey.upload(req, res);
+	}
+	else{
+		res.type('text/plain');
+		res.status(497);
+		res.send('497 - HTTP to HTTPS');
+	}
 });
 
 //404 - Not Found

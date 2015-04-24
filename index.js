@@ -44,6 +44,13 @@ app.post('/upload', function(req, res){
 	}
 });
 
+//Show request data
+//Don't!!!! use in production
+app.get('/request', function(req, res){
+	res.send(req.headers);
+	secure.auth(req);
+});
+
 //404 - Not Found
 app.use(function(req, res){
 	res.type('text/plain');

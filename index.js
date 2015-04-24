@@ -1,4 +1,3 @@
-var colors = require('colors');
 var secure = require('./lib/secure.js');
 var survey = require('./lib/survey.js');
 var express = require('express');
@@ -72,5 +71,5 @@ app.use(function(err, req, res, next){
 
 //Server Starting
 app.listen(app.get('port'), function(){
-	console.log(colors.green('LTEMAC started, press Ctrl-c to terminate.'));
+	console.log('LTEMAC started, press Ctrl-c to terminate.');
 });

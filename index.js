@@ -24,6 +24,8 @@ app.get('/image_auth', function(req, res){
 app.get('/download', function(req, res){
 	if(secure.connection(req)){
 		survey.download(req, res);
+		console.log(req.param('park'));
+		console.log(req.param('protocol'));
 	}
 	else{
 		res.type('text/plain');
@@ -45,9 +47,10 @@ app.post('/upload', function(req, res){
 });
 
 //Show request data
-//Don't!!!! use in production
 app.get('/request', function(req, res){
 	res.send(req.headers);
+	console.log(req.query.park);
+	console.log(req.query.protocol);
 	secure.auth(req);
 });
 

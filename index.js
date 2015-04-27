@@ -62,6 +62,7 @@ app.use(function(req, res){
 	else{
 		res.status(497);
 		res.send('497 - HTTP to HTTPS');
+		//Meaningless comment
 	}
 
 });

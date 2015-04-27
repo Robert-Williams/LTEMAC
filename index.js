@@ -58,6 +58,23 @@ app.use(function(req, res){
 	if(secure.connection(req)){
 		res.status(404);
 		res.send('404 - Not Found');
+		var conString = process.env.DATABASE_URL;
+
+		var client = new pg.Client(conString);
+		client.connect();
+
+		var query = client.query("select * from secret");
+
+		query.on("row", function(row, result) {
+			result.addRow(row);
+		});
+
+		query.on("end", function(result){
+			console.log(JSON.stringify(result.rows, null, "   "));
+			client.end();
+		});
+
+		res.send(JSON.stringify(result.rows, null, "   "))
 	}
 	else{
 		res.status(497);

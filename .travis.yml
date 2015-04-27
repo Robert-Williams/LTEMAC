@@ -1,0 +1,9 @@
+deploy:
+  provider: heroku
+  api_key:
+    secure: NktCzWuu7OAsh79c9GyUsYOkF40Kxxu8qRHLWD+5drQ9fULe08aSLeHC3sl2/1i2/IriHTDZrTarfsFpjLnzrlAs4WqfaMWML2Jw6W36DMhBDg3xS4kNEBiiRLdtUgIPYut4ZM7QHraAiSSdd8qFeOPE/clLhSUlEDqXk/vSabQ=
+language: node_js
+node_js:
+- '0.10'
+scripts:
+  test: "./node_modules/mocha/bin/mocha"

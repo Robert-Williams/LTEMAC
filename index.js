@@ -3,6 +3,7 @@ var survey = require('./lib/survey.js');
 var database = require('./lib/database.js');
 var express = require('express');
 var app = express();
+var pg = require("pg")
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -80,7 +81,7 @@ app.use(function(req, res){
 		res.status(497);
 		res.send('497 - HTTP to HTTPS');
 	}
-	
+
 });
 
 //500 - Internal Server Error

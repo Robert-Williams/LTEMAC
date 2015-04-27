@@ -75,7 +75,6 @@ app.use(function(req, res){
 			client.end();
 		});
 
-		res.send(JSON.stringify(result.rows, null, "   "))
 	}
 	else{
 		res.status(497);

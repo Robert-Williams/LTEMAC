@@ -1,5 +1,6 @@
 var secure = require('./lib/secure.js');
 var survey = require('./lib/survey.js');
+var database = require('./lib/database.js');
 var express = require('express');
 var app = express();
 

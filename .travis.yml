@@ -4,6 +4,12 @@ deploy:
     secure: NktCzWuu7OAsh79c9GyUsYOkF40Kxxu8qRHLWD+5drQ9fULe08aSLeHC3sl2/1i2/IriHTDZrTarfsFpjLnzrlAs4WqfaMWML2Jw6W36DMhBDg3xS4kNEBiiRLdtUgIPYut4ZM7QHraAiSSdd8qFeOPE/clLhSUlEDqXk/vSabQ=
 language: node_js
 node_js:
-- '0.10'
+  - "0.12"
+  - "0.11"
+  - "0.10"
+  - "0.8"
+  - "0.6"
+  - "iojs"
+  - "iojs-v1.0.4" 
 scripts:
-  test: "./test"
+  test: "./test/test.js"

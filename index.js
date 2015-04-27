@@ -80,6 +80,7 @@ app.use(function(req, res){
 		res.status(497);
 		res.send('497 - HTTP to HTTPS');
 	}
+	
 });
 
 //500 - Internal Server Error

@@ -47,6 +47,23 @@ app.post('/upload', function(req, res){
 });
 
 //Show request data
+
+/* **********temporary connection test ****************/
+var pg = require('pg');
+
+app.get('/db', function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM test_table', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.send(result.rows); }
+    });
+  });
+})
+/* **************end of temporary connection test**************/
+
 app.get('/request', function(req, res){
 	res.send(req.headers);
 	console.log(req.query.park);

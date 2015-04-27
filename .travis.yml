@@ -6,4 +6,4 @@ language: node_js
 node_js:
 - '0.10'
 scripts:
-  test: "./node_modules/mocha/bin/mocha"
+  test: "./node_modules/test"

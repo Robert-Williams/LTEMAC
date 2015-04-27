@@ -5,6 +5,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
+//400 bad request
 //401 unauthorized access
 //497 HTTP to HTTPS
 

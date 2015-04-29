@@ -5,6 +5,9 @@ deploy:
 language: node_js
 node_js:
   - "0.10"
-before_install: npm install grunt-cli
 install: npm install
-before_script: grunt build
+before_script:
+	- npm install grunt-cli
+	- npm install grunt-cafe-mocha
+	- npm install contrib-jshint
+	- npm install grunt-jscs

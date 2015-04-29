@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 		}
 	});
 
-	//Testing stuff, stuff, stuff, stuff
+	//Testing git pushing to multiple repository's
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-cafe-mocha');

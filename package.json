@@ -4,7 +4,7 @@
   "description": "Server software for providing cloud storage to LTEMA.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/*.js"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",

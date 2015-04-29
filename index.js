@@ -88,9 +88,6 @@ app.post('/upload', function(req, res){
 	}
 });
 
-//Show request data
-<<<<<<< HEAD
-
 /* **********temporary connection test ****************/
 var pg = require('pg');
 
@@ -109,8 +106,7 @@ app.get('/db', function(request, response) {
 });
 /* **************end of temporary connection test**************/
 
-=======
->>>>>>> 2009598fdd70f0a2dac57daa4a814042c45bce06
+//Show request data
 app.get('/request', function(req, res){
 	res.send(req.headers);
 	console.log(req.query.park);

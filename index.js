@@ -1,5 +1,6 @@
 var secure = require('./lib/secure.js');
 var survey = require('./lib/survey.js');
+var database = require('./lib/database.js');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -131,12 +132,13 @@ app.use(function(req, res){
 	res.type('text/plain');
 	if(secure.connection(req)){
 		res.status(404);
-		res.send('404 - Not Found');
+		res.send('404 - Not Found');		
 	}
 	else{
 		res.status(497);
 		res.send('497 - HTTP to HTTPS');
 	}
+
 });
 
 //500 - Internal Server Error

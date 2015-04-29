@@ -7,8 +7,11 @@ node_js:
  - "0.10"
 install: npm install
 before_script:
- - npm install grunt-cli
- - npm install grunt-cafe-mocha
- - npm install contrib-jshint
- - npm install grunt-jscs
+ - npm install -g grunt-cli
+ - npm install -g jshint
+ - npm install -g jscs
+ - npm install -g mocha
+ - npm install -g grunt-cafe-mocha
+ - npm install -g grunt-contrib-jshint
+ - npm install -g grunt-jscs
 script: grunt

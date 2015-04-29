@@ -15,4 +15,6 @@ before_script:
  - npm install -g grunt-cafe-mocha
  - npm install -g grunt-contrib-jshint
  - npm install -g grunt-jscs
-script: grunt --gruntfile ./Gruntfile.js
+script: 
+ - pwd
+ - ls -la

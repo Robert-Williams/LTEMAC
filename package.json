@@ -4,7 +4,7 @@
   "description": "Server software for providing cloud storage to LTEMA.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -22,11 +22,10 @@
   },
   "homepage": "https://github.com/Robert-Williams/LTEMAC",
   "dependencies": {
+    "body-parser": "^1.12.3",
     "express": "^4.12.3",
-<<<<<<< HEAD
-    "pg": "4.x"
-=======
     "pg": "^4.3.0"
->>>>>>> 2009598fdd70f0a2dac57daa4a814042c45bce06
   }
+  },
+  "devDependencies": {}
 }

@@ -1,9 +1,22 @@
+before_deploy: "echo 'ready?'"
 deploy:
   provider: heroku
   api_key:
     secure: NktCzWuu7OAsh79c9GyUsYOkF40Kxxu8qRHLWD+5drQ9fULe08aSLeHC3sl2/1i2/IriHTDZrTarfsFpjLnzrlAs4WqfaMWML2Jw6W36DMhBDg3xS4kNEBiiRLdtUgIPYut4ZM7QHraAiSSdd8qFeOPE/clLhSUlEDqXk/vSabQ=
+after_deploy: "echo ' after deployment'"
 language: node_js
 node_js:
-  - "0.10"
-scripts:
-  test: "./test/test.js"
+ - "0.10"
+install: npm install
+before_script:
+ - npm install -g grunt-cli
+ - npm install -g jshint
+ - npm install -g jscs
+ - npm install -g mocha
+ - npm install -g grunt
+ - npm install -g grunt-cafe-mocha
+ - npm install -g grunt-contrib-jshint
+ - npm install -g grunt-jscs
+script: 
+ - pwd
+ - ls -la

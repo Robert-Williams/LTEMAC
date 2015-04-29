@@ -2,7 +2,10 @@ var secure = require('./lib/secure.js');
 var survey = require('./lib/survey.js');
 var database = require('./lib/database.js');
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
+
+var jsonParser = bodyParser.json();
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -12,8 +15,19 @@ app.set('port', (process.env.PORT || 5000));
 
 //Request Image Storage Key
 app.get('/image_auth', function(req, res){
+	//Check to see if connection is using SSL
 	if(secure.connection(req)){
-		secure.sendSecret(req, res);
+		//Check to see if user is authorized
+		var authLevel = secure.auth(req);
+		if(authLevel > 0){
+			//Send media secret
+			res.send(secure.mediaSecret());
+		}
+		else{
+			res.type('text/plain');
+			res.status(401);
+			res.send('401 - Unauthorized Access');
+		}
 	}
 	else{
 		res.type('text/plain');
@@ -69,7 +83,16 @@ app.get('/download', function(req, res){
 //Upload a Survey
 app.post('/upload', function(req, res){
 	if(secure.connection(req)){
-		survey.upload(req, res);
+		//Check if user is authorized
+		var authLevel = secure.auth(req);
+		if(authLevel > 0){
+			var result = survey.upload(authLevel, survey, res);
+		}
+		else{
+			res.type('text/plain');
+			res.status(401);
+			res.send('401 - Unauthorized Access');
+		}
 	}
 	else{
 		res.type('text/plain');
@@ -77,6 +100,24 @@ app.post('/upload', function(req, res){
 		res.send('497 - HTTP to HTTPS');
 	}
 });
+
+/* **********temporary connection test ****************/
+var pg = require('pg');
+
+app.get('/db', function(request, response) {
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+		client.query('SELECT * FROM secret', function(err, result) {
+			done();
+			if (err) {
+				console.error(err); response.send('Error ' + err);
+			}
+			else {
+				response.send(result.rows);
+			}
+		});
+	});
+});
+/* **************end of temporary connection test**************/
 
 //Show request data
 app.get('/request', function(req, res){

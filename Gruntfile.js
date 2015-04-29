@@ -37,6 +37,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-shell');
 
-	grunt.registerTask('default', ['jshint', 'jscs', 'cafemocha', 'shell']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'cafemocha']);
 
 };

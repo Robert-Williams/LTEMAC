@@ -11,8 +11,19 @@ app.set('port', (process.env.PORT || 5000));
 
 //Request Image Storage Key
 app.get('/image_auth', function(req, res){
+	//Check to see if connection is using SSL
 	if(secure.connection(req)){
-		secure.sendSecret(req, res);
+		//Check to see if user is authorized
+		var authLevel = secure.auth(req);
+		if(authLevel > 0){
+			//Send media secret
+			res.send(secure.mediaSecret());
+		}
+		else{
+			res.type('text/plain');
+			res.status(401);
+			res.send('401 - Unauthorized Access');
+		}
 	}
 	else{
 		res.type('text/plain');

@@ -4,11 +4,11 @@ deploy:
     secure: NktCzWuu7OAsh79c9GyUsYOkF40Kxxu8qRHLWD+5drQ9fULe08aSLeHC3sl2/1i2/IriHTDZrTarfsFpjLnzrlAs4WqfaMWML2Jw6W36DMhBDg3xS4kNEBiiRLdtUgIPYut4ZM7QHraAiSSdd8qFeOPE/clLhSUlEDqXk/vSabQ=
 language: node_js
 node_js:
-  - "0.10"
+ - "0.10"
 install: npm install
 before_script:
-	- npm install grunt-cli
-	- npm install grunt-cafe-mocha
-	- npm install contrib-jshint
-	- npm install grunt-jscs
+ - npm install grunt-cli
+ - npm install grunt-cafe-mocha
+ - npm install contrib-jshint
+ - npm install grunt-jscs
 script: grunt

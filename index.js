@@ -23,10 +23,40 @@ app.get('/image_auth', function(req, res){
 
 //Request a Survey
 app.get('/download', function(req, res){
+	//Check to see if connection is using SSL
 	if(secure.connection(req)){
-		survey.download(req, res);
-		console.log(req.param('park'));
-		console.log(req.param('protocol'));
+		var authLevel = secure.auth(req);
+
+		//Check if user is authorized to download surveys
+		if(authLevel > 0){
+			var park = req.query.park;
+			var protocol = req.query.protocol;
+
+			//Check if query has parameters
+			if(park !== undefined && protocol !== undefined){
+				var survey = survey.download(park, protocol);
+
+				//If a result is returned, send it to the client
+				if(survey.result === 'good'){
+					res.json(survey.content);
+				}
+				else{
+					res.type('text/plain');
+					res.status(404);
+					res.send('400 - Not Found');
+				}
+			}
+			else{
+				res.type('text/plain');
+				res.status(400);
+				res.send('400 - Bad Request');
+			}
+		}
+		else{
+			res.type('text/plain');
+			res.status(401);
+			res.send('401 - Unauthorized Access');
+		}
 	}
 	else{
 		res.type('text/plain');
@@ -48,6 +78,7 @@ app.post('/upload', function(req, res){
 });
 
 //Show request data
+<<<<<<< HEAD
 
 /* **********temporary connection test ****************/
 var pg = require('pg');
@@ -67,6 +98,8 @@ app.get('/db', function(request, response) {
 });
 /* **************end of temporary connection test**************/
 
+=======
+>>>>>>> 2009598fdd70f0a2dac57daa4a814042c45bce06
 app.get('/request', function(req, res){
 	res.send(req.headers);
 	console.log(req.query.park);

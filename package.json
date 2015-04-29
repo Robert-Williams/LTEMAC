@@ -23,6 +23,10 @@
   "homepage": "https://github.com/Robert-Williams/LTEMAC",
   "dependencies": {
     "express": "^4.12.3",
+<<<<<<< HEAD
     "pg": "4.x"
+=======
+    "pg": "^4.3.0"
+>>>>>>> 2009598fdd70f0a2dac57daa4a814042c45bce06
   }
 }

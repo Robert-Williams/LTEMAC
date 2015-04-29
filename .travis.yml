@@ -11,3 +11,4 @@ before_script:
 	- npm install grunt-cafe-mocha
 	- npm install contrib-jshint
 	- npm install grunt-jscs
+script: grunt

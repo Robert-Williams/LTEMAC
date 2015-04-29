@@ -3,7 +3,6 @@ var survey = require('./lib/survey.js');
 var database = require('./lib/database.js');
 var express = require('express');
 var app = express();
-var pg = require("pg")
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -58,23 +57,7 @@ app.use(function(req, res){
 	res.type('text/plain');
 	if(secure.connection(req)){
 		res.status(404);
-		res.send('404 - Not Found');
-		var conString = process.env.DATABASE_URL;
-
-		var client = new pg.Client(conString);
-		client.connect();
-
-		var query = client.query("select * from secret");
-
-		query.on("row", function(row, result) {
-			result.addRow(row);
-		});
-
-		query.on("end", function(result){
-			console.log(JSON.stringify(result.rows, null, "   "));
-			client.end();
-		});
-
+		res.send('404 - Not Found');		
 	}
 	else{
 		res.status(497);

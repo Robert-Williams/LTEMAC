@@ -3,6 +3,7 @@ var survey = require('./lib/survey.js');
 var database = require('./lib/database.js');
 var express = require('express');
 var bodyParser = require('body-parser');
+var color = require('colors');
 var app = express();
 
 var jsonParser = bodyParser.json();
@@ -30,6 +31,7 @@ app.get('/image_auth', function(req, res){
 		}
 	}
 	else{
+		console.log(color.red('497 - HTTP to HTTPS'));
 		res.type('text/plain');
 		res.status(497);
 		res.send('497 - HTTP to HTTPS');
@@ -74,6 +76,7 @@ app.get('/download', function(req, res){
 		}
 	}
 	else{
+		console.log(color.red('497 - HTTP to HTTPS'));
 		res.type('text/plain');
 		res.status(497);
 		res.send('497 - HTTP to HTTPS');
@@ -95,6 +98,7 @@ app.post('/upload', function(req, res){
 		}
 	}
 	else{
+		console.log(color.red('497 - HTTP to HTTPS'));
 		res.type('text/plain');
 		res.status(497);
 		res.send('497 - HTTP to HTTPS');
@@ -135,6 +139,7 @@ app.use(function(req, res){
 		res.send('404 - Not Found');
 	}
 	else{
+		console.log(color.red('497 - HTTP to HTTPS'));
 		res.status(497);
 		res.send('497 - HTTP to HTTPS');
 	}

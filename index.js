@@ -132,7 +132,7 @@ app.use(function(req, res){
 	res.type('text/plain');
 	if(secure.connection(req)){
 		res.status(404);
-		res.send('404 - Not Found');		
+		res.send('404 - Not Found');
 	}
 	else{
 		res.status(497);

@@ -51,11 +51,11 @@ app.get('/download', function(req, res){
 
 			//Check if query has parameters
 			if(park !== undefined && protocol !== undefined){
-				var survey = survey.download(park, protocol);
+				var result = survey.download(park, protocol);
 
 				//If a result is returned, send it to the client
-				if(survey.result === 'good'){
-					res.json(survey.content);
+				if(result.status === 'good'){
+					res.json(result.content);
 				}
 				else{
 					res.type('text/plain');

@@ -25,6 +25,7 @@
     "body-parser": "^1.12.3",
     "colors": "^1.1.0",
     "express": "^4.12.3",
+    "node-promise": "^0.5.12",
     "pg": "^4.3.0"
   },
   "devDependencies": {

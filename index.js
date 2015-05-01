@@ -5,6 +5,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var color = require('colors');
 var app = express();
+var pg = require('pg');
 
 var jsonParser = bodyParser.json();
 
@@ -60,7 +61,7 @@ app.get('/download', function(req, res){
 				else{
 					res.type('text/plain');
 					res.status(404);
-					res.send('400 - Not Found');
+					res.send('404 - Not Found');
 				}
 			}
 			else{
@@ -84,12 +85,22 @@ app.get('/download', function(req, res){
 });
 
 //Upload a Survey
-app.post('/upload', function(req, res){
+app.post('/upload', jsonParser, function(req, res){
 	if(secure.connection(req)){
 		//Check if user is authorized
 		var authLevel = secure.auth(req);
 		if(authLevel > 0){
-			var result = survey.upload(authLevel, survey, res);
+			if(req.body){
+				var result = survey.upload(authLevel, req.body);
+				res.type(result.contentType);
+				res.status(result.status);
+				res.send(result.code);
+			}
+			else{
+				res.type('text/plain');
+				res.status(400);
+				res.send('400 - Bad Request');
+			}
 		}
 		else{
 			res.type('text/plain');
@@ -106,8 +117,6 @@ app.post('/upload', function(req, res){
 });
 
 /* **********temporary connection test ****************/
-var pg = require('pg');
-
 app.get('/db', function(request, response) {
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query('SELECT * FROM secret', function(err, result) {

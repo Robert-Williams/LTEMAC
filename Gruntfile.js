@@ -10,14 +10,16 @@ module.exports = function(grunt) {
 			}
 		},
 		cafemocha: {
-			src: 'test/*.js',
+			src: 'test/test.js',
 			options: {
 				ui: 'bdd',
 				reporter: 'landing'
 			}
 		},
 		jscs: {
-			src: ['*.js', 'lib/**/*.js', 'test/*.js', 'Gruntfile.js']
+			//src: ['*.js', 'lib/**/*.js', 'test/*.js', 'Gruntfile.js']
+
+			src: ['*.js', 'lib/**/*.js', 'Gruntfile.js']
 		},
 		shell: {
 			multiple: {

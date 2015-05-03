@@ -8,6 +8,7 @@ var colors = require('colors');
 	
 	reference: https://nodejs.org/api/https.html
 *******************************************************************/
+
 var image_auth_options = {
 	hostname: 'capstone-ltemac.herokuapp.com',
 	port: 443,
@@ -16,6 +17,7 @@ var image_auth_options = {
 	header: {'secret': '12345-12345-12345-12345-12345'}
 };
 //set Agent object
+
 image_auth_options.agent = new http.Agent(image_auth_options);
 
 var image_auth_req = http.request(image_auth_options, function(res) {
@@ -32,6 +34,7 @@ var image_auth_req = http.request(image_auth_options, function(res) {
 });
 image_auth_req.end();
 image_auth_req.on('error', function(e) {
+	
 	//console.log('error occurred in HTTP image_auth GET request'.red);
 	console.error('error occurred in HTTP image_auth GET request,\n\tmessage: '.red + e.message);
 });
@@ -39,6 +42,7 @@ image_auth_req.on('error', function(e) {
 /* *****************************************************************
 	Test GET/REQUEST from image_auth in HTTPS for secret header
 *******************************************************************/
+
 var image_auth_options = {
 	hostname: 'capstone-ltemac.herokuapp.com',
 	port: 443,
@@ -47,6 +51,7 @@ var image_auth_options = {
 	header: {'secret': '12345-12345-12345-12345-12345'}
 };
 //set Agent object
+
 image_auth_options.agent = new https.Agent(image_auth_options);
 
 var image_auth_req = https.request(image_auth_options, function(res) {
@@ -72,6 +77,7 @@ image_auth_req.on('error', function(e) {
 /* *****************************************************************
 	Test GET/REQUEST from DOWNLOAD in HTTP function for secret header
 *******************************************************************/
+
 var download_options = {
 	hostname: 'capstone-ltemac.herokuapp.com',
 	port: 443,
@@ -80,6 +86,7 @@ var download_options = {
 	header: {'secret': '12345-12345-12345-12345-12345'}
 };
 //set Agent object
+
 download_options.agent = new http.Agent(download_options);
 
 var download_req = http.request(download_options, function(res) {
@@ -96,6 +103,7 @@ var download_req = http.request(download_options, function(res) {
 });
 download_req.end();
 download_req.on('error', function(e) {
+	
 	//console.log('error occurred in HTTP download GET request, message: '.red + e.message);
 	console.error('error occurred in HTTP download GET request,\n\tmessage: '.red + e.message);
 });
@@ -103,6 +111,7 @@ download_req.on('error', function(e) {
 /* *****************************************************************
 	Test GET/REQUEST from DOWNLOAD in HTTPS function for secret header
 *******************************************************************/
+
 var download_options = {
 	hostname: 'capstone-ltemac.herokuapp.com',
 	port: 443,
@@ -111,6 +120,7 @@ var download_options = {
 	header: {'secret': '12345-12345-12345-12345-12345'}
 };
 //set Agent object
+
 download_options.agent = new https.Agent(download_options);
 
 var download_req = https.request(download_options, function(res) {
@@ -163,4 +173,3 @@ check_survey_req.on('error', function(e) {
 	console.error(e);
 });
 */
-

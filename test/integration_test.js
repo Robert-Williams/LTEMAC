@@ -14,7 +14,7 @@ var image_auth_options = {
 	port: 443,
 	path: '/image_auth',
 	method: 'GET',
-	header: {'secret': '12345-12345-12345-12345-12345'}
+	header: {secret: '12345-12345-12345-12345-12345'}
 };
 //set Agent object
 
@@ -35,8 +35,8 @@ var image_auth_req = http.request(image_auth_options, function(res) {
 image_auth_req.end();
 image_auth_req.on('error', function(e) {
 	
-	//console.log('error occurred in HTTP image_auth GET request'.red);
-	console.error('error occurred in HTTP image_auth GET request,\n\tmessage: '.red + e.message);
+	console.log('error occurred in HTTP image_auth GET request'.red);
+	//console.error('error occurred in HTTP image_auth GET request,\n\tmessage: '.red + e.message);
 });
 
 /* *****************************************************************
@@ -48,7 +48,7 @@ var image_auth_options = {
 	port: 443,
 	path: '/image_auth',
 	method: 'GET',
-	header: {'secret': '12345-12345-12345-12345-12345'}
+	header: {secret: '12345-12345-12345-12345-12345'}
 };
 //set Agent object
 
@@ -83,7 +83,7 @@ var download_options = {
 	port: 443,
 	path: '/download',
 	method: 'GET',
-	header: {'secret': '12345-12345-12345-12345-12345'}
+	header: {secret: '12345-12345-12345-12345-12345'}
 };
 //set Agent object
 
@@ -117,7 +117,7 @@ var download_options = {
 	port: 443,
 	path: '/download?park=testSite&protocol=testProtocol',
 	method: 'GET',
-	header: {'secret': '12345-12345-12345-12345-12345'}
+	header: {secret: '12345-12345-12345-12345-12345'}
 };
 //set Agent object
 

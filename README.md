@@ -38,8 +38,6 @@ npm install grunt-cafe-mocha --save-dev
 npm install grunt-jscs --save-dev
 ```
     
-[![Build Status](https://travis-ci.org/Robert-Williams/LTEMAC.svg?branch=master)](https://travis-ci.org/Robert-Williams/LTEMAC)
-
 ### Project Team:
 * Robert Williams
 * Nathan Staples

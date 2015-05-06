@@ -1,12 +1,13 @@
 var secure = require('./lib/secure.js');
 var survey = require('./lib/survey.js');
 var express = require('express');
-var bodyParser = require('body-parser');
+var timeout = require('connect-timeout');
 var app = express();
 
-var jsonParser = bodyParser.json();
 
 app.set('port', (process.env.PORT || 5000));
+app.use(timeout('15s'));
+app.use(haltOnTimedOut);
 
 //Request Image Storage Key
 app.get('/image_auth', function(req, res){
@@ -24,7 +25,12 @@ app.get('/download', function(req, res){
 });
 
 //Upload a Survey
-app.post('/upload', jsonParser, function(req, res){
+app.post('/upload', function(req, res){
+	secure.connection(req, res, survey.upload);
+});
+
+//Upload a Survey
+app.post('/upload', function(req, res){
 	secure.connection(req, res, survey.upload);
 });
 
@@ -45,3 +51,15 @@ app.use(function(err, req, res, next){
 app.listen(app.get('port'), function(){
 	console.log('LTEMAC started, press Ctrl-c to terminate.');
 });
+
+function haltOnTimedout(req, res, next){
+  if (!req.timedout){
+  	next();
+  }
+  else {
+  	console.log("Execution timed out. Crashing gracefully.");
+	res.type('text/plain');
+	res.status(500);
+	res.send("Request Timed Out");
+  }
+}

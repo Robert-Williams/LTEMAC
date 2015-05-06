@@ -1,36 +1,34 @@
 var secure = require('./lib/secure.js');
 var survey = require('./lib/survey.js');
 var express = require('express');
-var timeout = require('connect-timeout');
+var connectTimeout = require('connect-timeout');
 var app = express();
-
+var timout = connectTimeout({time:15000});
 
 app.set('port', (process.env.PORT || 5000));
-app.use(timeout('15s'));
-app.use(haltOnTimedOut);
 
 //Request Image Storage Key
-app.get('/image_auth', function(req, res){
+app.get('/image_auth', timeout, function(req, res){
 	secure.connection(req, res, survey.imageAuth);
 });
 
 //Request list of surveys in interim database
-app.get('/getSurveys', function(req, res){
+app.get('/getSurveys', timeout, function(req, res){
 	secure.connection(req, res, survey.getSurveys);
 });
 
 //Request a Survey
-app.get('/download', function(req, res){
+app.get('/download', timeout, function(req, res){
 	secure.connection(req, res, survey.download);
 });
 
 //Upload a Survey
-app.post('/upload', function(req, res){
+app.post('/upload', timeout, function(req, res){
 	secure.connection(req, res, survey.upload);
 });
 
 //Upload a Survey
-app.post('/upload', function(req, res){
+app.post('/upload', timeout, function(req, res){
 	secure.connection(req, res, survey.upload);
 });
 
@@ -52,14 +50,4 @@ app.listen(app.get('port'), function(){
 	console.log('LTEMAC started, press Ctrl-c to terminate.');
 });
 
-function haltOnTimedout(req, res, next){
-  if (!req.timedout){
-  	next();
-  }
-  else {
-  	console.log("Execution timed out. Crashing gracefully.");
-	res.type('text/plain');
-	res.status(500);
-	res.send("Request Timed Out");
-  }
 }

@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 
 var app = express();
 var jsonParser = bodyParser.json();
-app.use(jsonParser());
 //var timout = connectTimeout({time:5000});
 
 app.set('port', (process.env.PORT || 5000));
@@ -32,7 +31,7 @@ app.post('/upload', function(req, res){
 });
 
 //Upload a Survey
-app.post('/upload', function(req, res){
+app.post('/upload', jsonParser, function(req, res){
 	secure.connection(req, res, survey.upload);
 });
 

@@ -49,5 +49,3 @@ app.use(function(err, req, res, next){
 app.listen(app.get('port'), function(){
 	console.log('LTEMAC started, press Ctrl-c to terminate.');
 });
-
-}

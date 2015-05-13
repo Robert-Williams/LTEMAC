@@ -1,9 +1,9 @@
 var secure = require('./lib/secure.js');
 var survey = require('./lib/survey.js');
 var express = require('express');
-//var connectTimeout = require('connect-timeout');
+var connectTimeout = require('connect-timeout');
 var app = express();
-//var timout = connectTimeout({time:5000});
+var timout = connectTimeout({time:5000});
 
 app.set('port', (process.env.PORT || 5000));
 

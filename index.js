@@ -32,6 +32,7 @@ app.post('/upload', function(req, res){
 
 //Upload a Survey
 app.post('/upload', function(req, res){
+	console.log(req.body.version_no);
 	secure.connection(req, res, survey.upload);
 });
 

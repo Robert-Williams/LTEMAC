@@ -1,8 +1,8 @@
 var secure = require('./lib/secure.js');
 var survey = require('./lib/survey.js');
 var express = require('express');
-//var bodyParser = require('body-parser');
-//var connectTimeout = require('connect-timeout');
+var bodyParser = require('body-parser');
+var connectTimeout = require('connect-timeout');
 
 var app = express();
 //var jsonParser = bodyParser.json();

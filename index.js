@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var connectTimeout = require('connect-timeout');
 
 var app = express();
-//var jsonParser = bodyParser.json();
+var jsonParser = bodyParser.json();
 //var timout = connectTimeout({time:5000});
 
 app.set('port', (process.env.PORT || 5000));
@@ -26,13 +26,7 @@ app.get('/download', function(req, res){
 });
 
 //Upload a Survey
-app.post('/upload', function(req, res){
-	secure.connection(req, res, survey.upload);
-});
-
-//Upload a Survey
-app.post('/upload', function(req, res){
-	console.log(req.body.version_no);
+app.post('/upload', jsonParser, function(req, res){
 	secure.connection(req, res, survey.upload);
 });
 

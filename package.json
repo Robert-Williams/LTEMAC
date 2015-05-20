@@ -1,5 +1,5 @@
 {
-  "name": "LTEMAC",
+  "name": "ltemac",
   "version": "1.0.0",
   "description": "Server software for providing cloud storage to LTEMA.",
   "main": "index.js",
@@ -31,6 +31,10 @@
     "promise": "^7.0.1"
   },
   "devDependencies": {
-    "grunt-shell": "^1.1.2"
+    "grunt-shell": "^1.1.2",
+    "grunt-contrib-jshint": "~0.11.2",
+    "grunt-cafe-mocha": "~0.1.13",
+    "grunt-jscs": "~1.8.0",
+    "grunt": "~0.4.5"
   }
 }

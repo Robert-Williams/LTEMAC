@@ -12,7 +12,7 @@ LTEMAC is a server software package designed to give the LTEMA
 application the ability to store site surveys in the cloud.
 
 ### Key Features
-
+*
 
 ### Dependencies
 * Express
@@ -42,4 +42,3 @@ npm install grunt-jscs --save-dev
 * Robert Williams
 * Nathan Staples
 * Neil McMunn
-

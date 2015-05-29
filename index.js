@@ -36,7 +36,7 @@ app.get('/download', function(req, res){
 
 //Upload a Survey
 // SHOULD: name it /surveys instead upload
-app.post('/upload', jsonParser function(req, res){
+app.post('/upload', jsonParser, function(req, res){
 	secure.connection(req, res, survey.upload);
 });
 

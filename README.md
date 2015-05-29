@@ -12,10 +12,21 @@ LTEMAC is a server software package designed to give the LTEMA
 application the ability to store site surveys in the cloud.
 
 ### Key Features
-*
+* Stores surveys as JSON strings
+* Authenticates upload/download access via secrets
+
+### API Functions
+* /image_auth : Get credentials for accessing Flickr image account
+* /getSurveys : Get a list of known surveys
+* /download : Pull a survey from the server
+* /upload : Push a survey to the server
+All functions require secret key authorization
 
 ### Dependencies
-* Express
+* express
+* pg
+* body-parser
+* connect-timeout
 
 ### QA Tools
 * Grunt (Javascript Task Runner)

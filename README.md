@@ -13,14 +13,13 @@ application the ability to store site surveys in the cloud.
 
 ### Key Features
 * Stores surveys as JSON strings
-* Authenticates upload/download access via secrets
+* Authenticates user access with secret keys
 
 ### API Functions
 * /image_auth : Get credentials for accessing Flickr image account
 * /getSurveys : Get a list of known surveys
 * /download : Pull a survey from the server
 * /upload : Push a survey to the server
-All functions require secret key authorization
 
 ### Dependencies
 * express

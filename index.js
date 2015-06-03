@@ -17,26 +17,23 @@ app.set('port', (process.env.PORT || 5000));
 // MUST: use npm forever to prevent the NodeJS process from dying on unhandled errors, unless hiroku does this for you
 
 //Request Image Storage Key
-app.get('/image_auth', function(req, res){
+app.get('/image_storage_key', function(req, res){
 	secure.connection(req, res, survey.imageAuth);
 });
 
 //Request list of surveys in interim database
-// SHOULD: name it /surveys instead of using getSurveys
-app.get('/getSurveys', function(req, res){
+app.get('/surveys', function(req, res){
 	secure.connection(req, res, survey.getSurveys);
 });
 
 //Request a Survey
-// SHOULD: name it /surveys/:id instead download
-app.get('/download', function(req, res){
+app.get('/surveys/:id', function(req, res){
 
 	secure.connection(req, res, survey.download);
 });
 
 //Upload a Survey
-// SHOULD: name it /surveys instead upload
-app.post('/upload', jsonParser, function(req, res){
+app.post('/surveys', jsonParser, function(req, res){
 	secure.connection(req, res, survey.upload);
 });
 

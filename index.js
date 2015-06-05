@@ -17,7 +17,7 @@ app.set('port', (process.env.PORT || 5000));
 // MUST: use npm forever to prevent the NodeJS process from dying on unhandled errors, unless hiroku does this for you
 
 //Request Image Storage Key
-app.get('/image_storage_key', function(req, res){
+app.get('/imageStorageKey', function(req, res){
 	secure.connection(req, res, survey.imageAuth);
 });
 

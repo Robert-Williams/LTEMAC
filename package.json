@@ -28,7 +28,8 @@
     "express": "^4.12.3",
     "node-promise": "^0.5.12",
     "pg": "^4.3.0",
-    "promise": "^7.0.1"
+    "promise": "^7.0.1",
+    "mandrill-api": "~1.0.45"
   },
   "devDependencies": {
     "grunt-shell": "^1.1.2",
